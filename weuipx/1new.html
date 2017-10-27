@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/weui.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <style>
+        .db-tit{position: fixed;width: 100%;height:30px;background-color: #00b600;text-align: center;}
+        .db-tit img{height:80%;vertical-align: middle;}
+        .swiper-wrapper img{width: 100%}
+        .weui-tab{position: relative;}
+        .weui-tabbar{position: fixed;bottom: 0;left:0;}
+        #wrapper {
+            position: absolute;
+            z-index: 1;
+            top: 31px;
+            bottom: 48px;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            overflow: hidden;
+        }
+        #scroller {
+            position: absolute;
+            z-index: 1;
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            width: 100%;
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        h3{height:35px;line-height: 33px;text-indent: 12px;font-weight: normal;}
+    </style>
+</head>
+<body>
+    <div class="db-tit">
+        <img src="myImg/logo_db.png" alt="">
+    </div>
+    
+
+
+    
+
+<div id="wrapper">
+    <div id="scroller">
+       
+                <div class="page__bd">
+                <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+                <div class="weui-search-bar" id="searchBar">
+                    <form class="weui-search-bar__form">
+                        <div class="weui-search-bar__box">
+                            <i class="weui-icon-search"></i>
+                            <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                            <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                        </div>
+                        <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                            <i class="weui-icon-search"></i>
+                            <span>搜索</span>
+                        </label>
+                    </form>
+                    <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+                </div>
+                <div class="weui-cells searchbar-result" id="searchResult" style="display: none;">
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd weui-cell_primary">
+                            <p>实时搜索文本</p>
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd weui-cell_primary">
+                            <p>实时搜索文本</p>
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd weui-cell_primary">
+                            <p>实时搜索文本</p>
+                        </div>
+                    </div>
+                    <div class="weui-cell weui-cell_access">
+                        <div class="weui-cell__bd weui-cell_primary">
+                            <p>实时搜索文本</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    <div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="myImg/banner01.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="myImg/banner02.jpg" alt=""></div>
+        <div class="swiper-slide"><img src="myImg/banner03.jpg" alt=""></div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+                <h3 class="myGuanzhu">我的关注</h3>
+
+                <div class="weui-grids">
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/01.jpg" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      Button
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/02.png" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/03.jpg" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/04.png" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      Button
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/05.jpg" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/06.png" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a><a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/07.jpg" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      Button
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/08.jpg" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a>
+                  <a href="" class="weui-grid js_grid">
+                    <div class="weui-grid__icon">
+                      <img src="myImg/09.png" alt="">
+                    </div>
+                    <p class="weui-grid__label">
+                      List
+                    </p>
+                  </a>
+                    
+
+        </ul>
+    </div>
+</div>
+
+<div class="weui-tabbar">
+        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/home.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+            </span>
+            <p class="weui-tabbar__label">首页</p>
+        </a>
+        <a href="2.html" class="weui-tabbar__item">
+            <img src="myImg/read.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">阅读</p>
+        </a>
+        <a href="3new.html" class="weui-tabbar__item">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/movie.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+            </span>
+            <p class="weui-tabbar__label">电影</p>
+        </a>
+        <a href="4.html" class="weui-tabbar__item">
+            <img src="myImg/user.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js'></script>
+
+<script type="text/javascript" src="js/iscroll.js"></script>
+<!-- Swiper JS -->
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script>
+$(function(){
+    $(".swiper-container").swiper({//轮播banner
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    }) 
+
+
+
+    var $searchBar = $('#searchBar'),//搜索栏
+        $searchResult = $('#searchResult'),
+        $searchText = $('#searchText'),
+        $searchInput = $('#searchInput'),
+        $searchClear = $('#searchClear'),
+        $searchCancel = $('#searchCancel');
+
+    function hideSearchResult(){
+        $searchResult.hide();
+        $searchInput.val('');
+    }
+    function cancelSearch(){
+        hideSearchResult();
+        $searchBar.removeClass('weui-search-bar_focusing');
+        $searchText.show();
+    }
+
+    $searchText.on('click', function(){
+        $searchBar.addClass('weui-search-bar_focusing');
+        $searchInput.focus();
+    });
+    $searchInput
+        .on('blur', function () {
+            if(!this.value.length) cancelSearch();
+        })
+        .on('input', function(){
+            if(this.value.length) {
+                $searchResult.show();
+            } else {
+                $searchResult.hide();
+            }
+        })
+    ;
+    $searchClear.on('click', function(){
+        hideSearchResult();
+        $searchInput.focus();
+    });
+    $searchCancel.on('click', function(){
+        cancelSearch();
+        $searchInput.blur();
+    });
+
+    //iscroll
+    var myScroll = new IScroll('#wrapper', { scrollX: true, freeScroll: true });
+});
+</script>

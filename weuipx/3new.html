@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/weui.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+
+    <style>
+        .db-tit{position: fixed;width: 100%;height:30px;background-color: #00b600;text-align: center;z-index: 999;}
+        .db-tit img{height:80%;vertical-align: middle;}
+        .weui-tabbar{position: fixed;bottom: 0;left:0;}
+
+        .swiper-container {
+            width: 100%;
+            padding-top: 10px;
+            padding-bottom: 30px;
+            z-index: 1;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 157px;
+            height: 130px;
+            position: relative;
+
+        }
+        .swiper-slide i {
+            position: absolute;
+            top:130px;
+            left:0px;
+            width:157px;
+            text-align: center;
+        }
+        h3{height:35px;line-height: 50px;text-indent: 12px;font-weight: normal;}
+        .star{position: relative;height:17px;color:#848196;}
+        .star img{height:17px;display: block;float: left;  }
+    </style>
+</head>
+<body>
+    <div class="db-tit">
+            <img src="myImg/logo_db.png" alt="">
+    </div>
+    
+    <div style="height:37px;"></div>
+    
+    <h3>影院热映</h3>
+    
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image:url(myImg/p1.jpg)"><i>速度与激情</i></div>
+            <div class="swiper-slide" style="background-image:url(myImg/p2.jpg)"><i>蓝精灵</i></div>
+            <div class="swiper-slide" style="background-image:url(myImg/p3.jpg)"><i>傲慢与偏见</i></div>
+            <div class="swiper-slide" style="background-image:url(myImg/p1.jpg)"><i>速度与激情</i></div>
+            <div class="swiper-slide" style="background-image:url(myImg/p2.jpg)"><i>蓝精灵</i></div>
+            <div class="swiper-slide" style="background-image:url(myImg/p3.jpg)"><i>傲慢与偏见</i></div>
+        </div>
+    </div>
+     
+    <div class="weui-panel__bd">
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="myImg/p1.jpg" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">速度与激情</h4> 
+                        <h4 class="star">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star2.jpg" alt="">
+                        </h4>                     
+                        <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                    </div>
+                </a>
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="myImg/p2.jpg" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">蓝精灵</h4> 
+                        <h4 class="star">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star1.jpg" alt="">
+                                        <img src="myImg/star2.jpg" alt="">
+                                        <img src="myImg/star3.jpg" alt="">
+                                        <img src="myImg/star3.jpg" alt="">
+                        </h4>                     
+                        <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                    </div>
+                </a>
+            </div>
+
+     <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+    <div id="main" style="width: 100%;height:100%;"></div>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+        title : {
+            show:true,
+            text:'电影票房',
+        },
+        tooltip : {
+            
+        },
+        legend: {
+            // orient: 'vertical',
+            // left: 'left',
+            // data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+        },
+        series : [
+            {
+                name: '票房',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data:[
+                    {value:335, name:'速度与激情8'},
+                    {value:310, name:'蓝精灵'},
+                    {value:234, name:'傲慢与偏见'},
+                    {value:135, name:'自杀小队'},
+                    {value:1548, name:'战狼2'}
+                ],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+    <div class="weui-loadmore">
+      <i class="weui-loading"></i>
+      <span class="weui-loadmore__tips">正在加载</span>
+    </div>
+    
+    <div style='height:50px'></div>
+
+    <div class="weui-tabbar">
+        <a href="1new.html" class="weui-tabbar__item ">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/home.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+            </span>
+            <p class="weui-tabbar__label">首页</p>
+        </a>
+        <a href="2.html" class="weui-tabbar__item">
+            <img src="myImg/read.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">阅读</p>
+        </a>
+        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/movie.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+            </span>
+            <p class="weui-tabbar__label">电影</p>
+        </a>
+        <a href="4.html" class="weui-tabbar__item">
+            <img src="myImg/user.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+    </div>
+</body>
+</html>
+<script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js'></script>
+<!-- Swiper JS -->
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    
+    
+    var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: false,
+        slidesPerView: 'auto',
+        autoplay: 2500,
+        coverflow: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows : true
+        }
+    });
+});
+</script>

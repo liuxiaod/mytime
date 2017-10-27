@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/weui.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.min.css">
+    <style>
+        .db-tit{position: fixed;width: 100%;height:30px;background-color: #00b600;text-align: center;}
+        .db-tit img{height:80%;vertical-align: middle;}
+    </style>
+</head>
+<body>
+	<div class="db-tit">
+            <img src="myImg/logo_db.png" alt="">
+    </div>
+
+    <div style="height:37px;"></div>
+
+	<div class="weui-msg">
+	  <div class="weui-msg__icon-area"><i class="weui-icon-warn weui-icon_msg"></i></div>
+	  <div class="weui-msg__text-area">
+	    <h2 class="weui-msg__title">您还没有登录哦</h2>
+	    <p class="weui-msg__desc">内容登录时无法查看的哦，已有账号赶快去登录，没有账号请先注册后再登录哦</a></p>
+	  </div>
+	  <div class="weui-msg__opr-area">
+	    <p class="weui-btn-area">
+	      <a href="javascript:;" class="weui-btn weui-btn_primary login">立即登录</a>
+	      <a href="login.html" class="weui-btn weui-btn_default ">立即注册</a>
+	    </p>
+	  </div>
+	</div>
+
+    <div class="weui-tabbar">
+        <a href="1new.html" class="weui-tabbar__item ">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/home.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+            </span>
+            <p class="weui-tabbar__label">首页</p>
+        </a>
+        <a href="2.html" class="weui-tabbar__item">
+            <img src="myImg/read.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">阅读</p>
+        </a>
+        <a href="3new.html" class="weui-tabbar__item">
+            <span style="display: inline-block;position: relative;">
+                <img src="myImg/movie.png" alt="" class="weui-tabbar__icon">
+                <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+            </span>
+            <p class="weui-tabbar__label">电影</p>
+        </a>
+        <a href="javascript:;" class="weui-tabbar__item weui-bar__item_on">
+            <img src="myImg/user.png" alt="" class="weui-tabbar__icon">
+            <p class="weui-tabbar__label">我的</p>
+        </a>
+    </div>
+</body>
+</html>
+<!-- <script type="text/javascript" src='http://apps.bdimg.com/libs/jquery/1.8.3/jquery.min.js'></script> -->
+<script type="text/javascript" src='https://unpkg.com/jquery@2.1.4/dist/jquery.js'></script>
+<script type="text/javascript" src="js/jquery-weui.min.js"></script>
+<!-- Swiper JS -->
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $(".swiper-container").swiper({
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    }) 
+    var $searchBar = $('#searchBar'),
+        $searchResult = $('#searchResult'),
+        $searchText = $('#searchText'),
+        $searchInput = $('#searchInput'),
+        $searchClear = $('#searchClear'),
+        $searchCancel = $('#searchCancel');
+
+    function hideSearchResult(){
+        $searchResult.hide();
+        $searchInput.val('');
+    }
+    function cancelSearch(){
+        hideSearchResult();
+        $searchBar.removeClass('weui-search-bar_focusing');
+        $searchText.show();
+    }
+
+    $searchText.on('click', function(){
+        $searchBar.addClass('weui-search-bar_focusing');
+        $searchInput.focus();
+    });
+    $searchInput
+        .on('blur', function () {
+            if(!this.value.length) cancelSearch();
+        })
+        .on('input', function(){
+            if(this.value.length) {
+                $searchResult.show();
+            } else {
+                $searchResult.hide();
+            }
+        })
+    ;
+    $searchClear.on('click', function(){
+        hideSearchResult();
+        $searchInput.focus();
+    });
+    $searchCancel.on('click', function(){
+        cancelSearch();
+        $searchInput.blur();
+    });
+
+    $('.login').on('click',function(){
+
+			//如果参数过多，建议通过 object 方式传入
+			$.login({
+			  title: '登录',
+			  text: '请输入用户名和密码',
+			  username: 'tom123456',  // 默认用户名
+			  password: 'tom123456',  // 默认密码
+			  onOK: function (username, password) {
+			    //点击确认
+			    //alert('登录成功');
+                $.toast();
+                $.toast("操作成功"); 
+			  },
+			  onCancel: function () {
+			    //点击取消
+			  }
+			});
+
+    })
+	   
+
+});
+</script>
