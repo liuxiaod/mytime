@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.one,.two{
+			width:500px;
+			margin:50px auto;
+		}
+		.one p:nth-child(1){
+			width:80%;
+			height:30px;
+			background:#ccc;
+			padding-left:10px;
+			line-height: 30px;
+		}
+		.two p:nth-child(1){
+			width:80%;
+			height:30px;
+			line-height: 30px;
+			background:#ccc;
+			padding-left:10px;
+		}
+		.parent{
+			/*width:80%;*/
+
+		}
+		.a{
+			background:url(./img/starsy.png);
+		}
+	</style>
+</head>
+<body>
+	<div class="one">
+		<p>半颗星</p>
+		<div class="parent"></div>
+		<p>您的评分是:<span class="score"></span>分</p>
+		<div class="think"></div>	
+	</div>
+
+	<div class="two">
+		<p>一颗星</p>
+		<div class="parent"></div>
+		<p>您的评分是:<span class="score"></span>分</p>
+		<div class="think"></div>	
+	</div>
+</body>
+	<script src="jquery-2.2.0.js"></script>
+	<script src="star.js"></script>
+	<script>
+		$(".one").star();
+		$(".two").star({
+			casen:false
+		})
+	</script>
+</html>

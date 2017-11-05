@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+   *{margin:0;padding:0;list-style:none;cursor: pointer;}
+   #box{width:900px;margin:0 auto;font-size:150px;text-align:center;color:#fff;}
+   #wrap{width:100px;position:fixed;bottom:0;right:0;display:none;color: #fff;}
+   #wrap li{height:40px;line-height:40px;text-align:center;padding-bottom:5px;border: 2px solid white;border-radius:10px 0 0 10px;background: #000;}
+   #box div:nth-child(1){background:red;height:800px;line-height:800px}
+   #box div:nth-child(2){background:orange;height:500px;line-height:500px}
+   #box div:nth-child(3){background:yellow;height:680px;line-height:680px}
+   #box div:nth-child(4){background:green;height:750px;line-height:750px}
+   #box div:nth-child(5){background:skyblue;height:600px;line-height:600px}
+   #box div:nth-child(6){background:blue;height:900px;line-height:900px}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div>1F</div>
+		<div>2F</div>
+		<div>3F</div>
+		<div>4F</div>
+		<div>5F</div>
+		<div>6F</div>
+	</div>
+	<ul id='wrap'>
+		<li>1F <span>珠宝配饰</span></li>
+		<li>2F <span>母婴用品</span></li>
+		<li>3F <span>鲜花宠物</span></li>
+		<li>4F <span>游戏动漫</span></li>
+		<li>5F <span>精品男装</span></li>
+		<li>6F <span>智能数码</span></li>
+		<li id='return'>__∧__</li>
+	</ul>
+	<script src='jquery-2.2.0.js'></script>
+	<script>
+	$(function(){
+		$(window).scroll(function(){//滑动窗口实现wrap的出现隐藏
+			if($(this).scrollTop()>50){
+				$('#wrap').slideDown()
+			}else{
+				$('#wrap').slideUp()
+			}
+		//用来显示ul显示，并且li赋予动效
+		$.each(arr,function(i,n){//精髓：主要实现当页面滑动到上一个盒子还剩下200px时，显示该动态效果
+        	if($(window).scrollTop()>=(n-200)){
+        		$('#wrap li').eq(i).stop().animate({'marginLeft':-100}).find('span').show().end().siblings().stop().animate({'marginLeft':0}).find('span').hide().end()
+        	}
+        })
+	})
+        //点击li后，让他跑到某一楼层上去
+		var arr=[];//声明一个变量，存储每个盒子的offsetTop值
+        $('#box div').each(function(){
+           arr.push(parseInt($(this).offset().top))
+        })
+        $('#wrap li').not('#return').click(function(){//点击该li显示所在高度
+                var ind=$(this).index()
+                $('html').animate({'scrollTop':arr[ind]},500)
+		})
+		console.log(arr)
+        $('#return').click(function(){//点击return实现：回到顶部
+			$('html').animate({'scrollTop':0})
+		})
+	})
+	</script>
+</body>
+</html>
